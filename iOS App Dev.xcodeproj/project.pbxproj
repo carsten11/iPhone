@@ -143,6 +143,10 @@
 		0B3130E117E85D0D00D0829B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3130E017E85D0D00D0829B /* ImageIO.framework */; };
 		0B31313D17E85ECE00D0829B /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B31313B17E85ECE00D0829B /* libChipmunkPro-iPhone.a */; };
 		0B31314017E8662800D0829B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B31313F17E8662800D0829B /* Game.m */; };
+		D9D4EEB317F3B4EC002CAA9F /* Ground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */; };
+		D9D4EEB517F3B5E2002CAA9F /* Ground.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB417F3B5E2002CAA9F /* Ground.png */; };
+		D9D4EEB717F3B8E1002CAA9F /* Ceiling-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */; };
+		D9D4EEB917F3B8F5002CAA9F /* Ceiling.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB817F3B8F5002CAA9F /* Ceiling.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -470,6 +474,10 @@
 		0B31313C17E85ECE00D0829B /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
 		0B31313E17E8662800D0829B /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		0B31313F17E8662800D0829B /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ground-hd.png"; sourceTree = "<group>"; };
+		D9D4EEB417F3B5E2002CAA9F /* Ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ground.png; sourceTree = "<group>"; };
+		D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ceiling-hd.png"; sourceTree = "<group>"; };
+		D9D4EEB817F3B8F5002CAA9F /* Ceiling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ceiling.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +558,10 @@
 			isa = PBXGroup;
 			children = (
 				0B312F4317E85CF200D0829B /* Default.png */,
+				D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */,
+				D9D4EEB817F3B8F5002CAA9F /* Ceiling.png */,
+				D9D4EEB417F3B5E2002CAA9F /* Ground.png */,
+				D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */,
 				0B312F4517E85CF200D0829B /* Default@2x.png */,
 				0B312F4717E85CF200D0829B /* Default-568h@2x.png */,
 				0B312F4917E85CF200D0829B /* Default-Landscape~ipad.png */,
@@ -1048,12 +1060,16 @@
 				0B312F4417E85CF200D0829B /* Default.png in Resources */,
 				0B312F4617E85CF200D0829B /* Default@2x.png in Resources */,
 				0B312F4817E85CF200D0829B /* Default-568h@2x.png in Resources */,
+				D9D4EEB317F3B4EC002CAA9F /* Ground-hd.png in Resources */,
 				0B312F4A17E85CF200D0829B /* Default-Landscape~ipad.png in Resources */,
 				0B312F4C17E85CF200D0829B /* Icon-72.png in Resources */,
 				0B312F4E17E85CF200D0829B /* Icon-Small-50.png in Resources */,
 				0B312F5017E85CF200D0829B /* Icon-Small.png in Resources */,
 				0B312F5217E85CF200D0829B /* Icon-Small@2x.png in Resources */,
+				D9D4EEB917F3B8F5002CAA9F /* Ceiling.png in Resources */,
 				0B312F5417E85CF200D0829B /* Icon.png in Resources */,
+				D9D4EEB717F3B8E1002CAA9F /* Ceiling-hd.png in Resources */,
+				D9D4EEB517F3B5E2002CAA9F /* Ground.png in Resources */,
 				0B312F5617E85CF200D0829B /* Icon@2x.png in Resources */,
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
@@ -1234,9 +1250,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS App Dev/Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"iOS App Dev/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"iOS App Dev/libs/kazmath/include\"";
 				INFOPLIST_FILE = "iOS App Dev/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -1261,9 +1275,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS App Dev/Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"iOS App Dev/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"iOS App Dev/libs/kazmath/include\"";
 				INFOPLIST_FILE = "iOS App Dev/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
