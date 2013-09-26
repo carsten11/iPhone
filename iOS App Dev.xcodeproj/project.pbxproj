@@ -143,6 +143,7 @@
 		0B3130E117E85D0D00D0829B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3130E017E85D0D00D0829B /* ImageIO.framework */; };
 		0B31313D17E85ECE00D0829B /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B31313B17E85ECE00D0829B /* libChipmunkPro-iPhone.a */; };
 		0B31314017E8662800D0829B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B31313F17E8662800D0829B /* Game.m */; };
+		B281686817F4DC0B008AF483 /* Fresh-Ocean-Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B281686717F4DC0A008AF483 /* Fresh-Ocean-Background.jpg */; };
 		D9D4EEB317F3B4EC002CAA9F /* Ground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */; };
 		D9D4EEB517F3B5E2002CAA9F /* Ground.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB417F3B5E2002CAA9F /* Ground.png */; };
 		D9D4EEB717F3B8E1002CAA9F /* Ceiling-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */; };
@@ -474,6 +475,7 @@
 		0B31313C17E85ECE00D0829B /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
 		0B31313E17E8662800D0829B /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		0B31313F17E8662800D0829B /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		B281686717F4DC0A008AF483 /* Fresh-Ocean-Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Fresh-Ocean-Background.jpg"; sourceTree = "<group>"; };
 		D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ground-hd.png"; sourceTree = "<group>"; };
 		D9D4EEB417F3B5E2002CAA9F /* Ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ground.png; sourceTree = "<group>"; };
 		D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ceiling-hd.png"; sourceTree = "<group>"; };
@@ -557,6 +559,7 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B281686717F4DC0A008AF483 /* Fresh-Ocean-Background.jpg */,
 				0B312F4317E85CF200D0829B /* Default.png */,
 				D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */,
 				D9D4EEB817F3B8F5002CAA9F /* Ceiling.png */,
@@ -1073,6 +1076,7 @@
 				0B312F5617E85CF200D0829B /* Icon@2x.png in Resources */,
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
+				B281686817F4DC0B008AF483 /* Fresh-Ocean-Background.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1250,7 +1254,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS App Dev/Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"iOS App Dev/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"iOS App Dev/libs/kazmath/include\"",
+				);
 				INFOPLIST_FILE = "iOS App Dev/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -1275,7 +1281,9 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS App Dev/Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"iOS App Dev/libs/kazmath/include\"";
+				HEADER_SEARCH_PATHS = (
+					"\"iOS App Dev/libs/kazmath/include\"",
+				);
 				INFOPLIST_FILE = "iOS App Dev/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
