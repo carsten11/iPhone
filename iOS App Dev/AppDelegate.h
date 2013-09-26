@@ -5,9 +5,9 @@
 //  Created by Sveinn Fannar Kristjansson on 9/14/13.
 //  Copyright Sveinn Fannar Kristjansson 2013. All rights reserved.
 //
-
-#import <UIKit/UIKit.h>
 #import "cocos2d.h"
+#import <UIKit/UIKit.h>
+
 
 // Added only for iOS 6 support
 @interface NavigationController : UINavigationController <CCDirectorDelegate>
