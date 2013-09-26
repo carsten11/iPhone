@@ -50,8 +50,10 @@
 - (void)setupGraphicsLandscape
 {
     
-    CCLayerColor *sky = [CCLayerColor layerWithColor:ccc4(0, 0, 150, 255)];
-    [self addChild:sky];
+    //Background
+    CCSprite *Background = [CCSprite spriteWithFile:@"Fresh-Ocean-Background.jpg"];
+    Background.anchorPoint = ccp(0,0);
+    [self addChild:Background];
     
     //Ground and Ceiling pictures still needs to be modified....
     CCSprite *Ground = [CCSprite spriteWithFile:@"Ground.png"];
@@ -66,12 +68,10 @@
 
 - (void)setupPhysicsLandscape
 {
-    NSURL *Groundurl = [[NSBundle mainBundle] URLForResource:@"Ground" withExtension:@"png"];
-    NSURL *Topurl = [[NSBundle mainBundle] URLForResource:@"Ceiling" withExtension:@"png"];
-    ChipmunkImageSampler *Gsampler = [ChipmunkImageSampler samplerWithImageFile:Groundurl isMask:NO];
-    ChipmunkImageSampler *Tsampler = [ChipmunkImageSampler samplerWithImageFile:Topurl isMask:NO];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Ground" withExtension:@"png"];
+    ChipmunkImageSampler *sampler = [ChipmunkImageSampler samplerWithImageFile:url isMask:NO];
     
-    ChipmunkPolylineSet *contour = [Tsampler marchAllWithBorder:NO hard:YES];
+    ChipmunkPolylineSet *contour = [sampler marchAllWithBorder:NO hard:YES];
     ChipmunkPolyline *line = [contour lineAtIndex:0];
     ChipmunkPolyline *simpleLine = [line simplifyCurves:1];
     

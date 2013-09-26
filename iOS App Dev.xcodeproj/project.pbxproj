@@ -1092,11 +1092,9 @@
 				0B312F5617E85CF200D0829B /* Icon@2x.png in Resources */,
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
-<<<<<<< HEAD
 				D9EC44FC17F4D8D800ADEC20 /* Player.png in Resources */,
-=======
 				B281686817F4DC0B008AF483 /* Fresh-Ocean-Background.jpg in Resources */,
->>>>>>> b830747683ea5eb622bd5d621b683d99365466e1
+                b830747683ea5eb622bd5d621b683d99365466e1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
