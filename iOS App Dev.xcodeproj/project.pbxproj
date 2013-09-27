@@ -152,6 +152,8 @@
 		D9D4EEC117F49B69002CAA9F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D4EEC017F49B69002CAA9F /* Player.m */; };
 		D9EC44FA17F4D8C700ADEC20 /* Player-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EC44F917F4D8C700ADEC20 /* Player-hd.png */; };
 		D9EC44FC17F4D8D800ADEC20 /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EC44FB17F4D8D800ADEC20 /* Player.png */; };
+		D9EC450617F4F9FA00ADEC20 /* Beach3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EC450517F4F9FA00ADEC20 /* Beach3-hd.png */; };
+		D9EC450817F4FA1200ADEC20 /* Beach3.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EC450717F4FA1200ADEC20 /* Beach3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -489,6 +491,8 @@
 		D9D4EEC017F49B69002CAA9F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = ../Player.m; sourceTree = "<group>"; };
 		D9EC44F917F4D8C700ADEC20 /* Player-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Player-hd.png"; sourceTree = "<group>"; };
 		D9EC44FB17F4D8D800ADEC20 /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
+		D9EC450517F4F9FA00ADEC20 /* Beach3-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Beach3-hd.png"; sourceTree = "<group>"; };
+		D9EC450717F4FA1200ADEC20 /* Beach3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beach3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,6 +575,8 @@
 			isa = PBXGroup;
 			children = (
 				B281686717F4DC0A008AF483 /* Fresh-Ocean-Background.jpg */,
+				D9EC450717F4FA1200ADEC20 /* Beach3.png */,
+				D9EC450517F4F9FA00ADEC20 /* Beach3-hd.png */,
 				0B312F4317E85CF200D0829B /* Default.png */,
 				D9EC44FB17F4D8D800ADEC20 /* Player.png */,
 				D9EC44F917F4D8C700ADEC20 /* Player-hd.png */,
@@ -1085,6 +1091,8 @@
 				0B312F4E17E85CF200D0829B /* Icon-Small-50.png in Resources */,
 				0B312F5017E85CF200D0829B /* Icon-Small.png in Resources */,
 				0B312F5217E85CF200D0829B /* Icon-Small@2x.png in Resources */,
+				D9EC450817F4FA1200ADEC20 /* Beach3.png in Resources */,
+				D9EC450617F4F9FA00ADEC20 /* Beach3-hd.png in Resources */,
 				D9D4EEB917F3B8F5002CAA9F /* Ceiling.png in Resources */,
 				0B312F5417E85CF200D0829B /* Icon.png in Resources */,
 				D9D4EEB717F3B8E1002CAA9F /* Ceiling-hd.png in Resources */,
@@ -1094,7 +1102,6 @@
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
 				D9EC44FC17F4D8D800ADEC20 /* Player.png in Resources */,
 				B281686817F4DC0B008AF483 /* Fresh-Ocean-Background.jpg in Resources */,
-                b830747683ea5eb622bd5d621b683d99365466e1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1273,9 +1280,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS App Dev/Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"iOS App Dev/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"iOS App Dev/libs/kazmath/include\"";
 				INFOPLIST_FILE = "iOS App Dev/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -1300,9 +1305,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS App Dev/Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"iOS App Dev/libs/kazmath/include\"",
-				);
+				HEADER_SEARCH_PATHS = "\"iOS App Dev/libs/kazmath/include\"";
 				INFOPLIST_FILE = "iOS App Dev/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (

@@ -55,20 +55,22 @@
     Background.anchorPoint = ccp(0,0);
     [self addChild:Background];
     
-    //Ground and Ceiling pictures still needs to be modified....
-    CCSprite *Ground = [CCSprite spriteWithFile:@"Ground.png"];
-    Ground.anchorPoint = ccp(0,0);
-    [self addChild:Ground];
+    //Beach
+    CCSprite *Beach = [CCSprite spriteWithFile:@"Beach3.png"];
+    Beach.anchorPoint = ccp(0,0.5);
+    [self addChild:Beach];
     
-    CCSprite *Ceiling = [CCSprite spriteWithFile:@"Ceiling.png"];
+    //Ceiling pictures still needs to be modified....
+    
+    /*CCSprite *Ceiling = [CCSprite spriteWithFile:@"Ceiling.png"];
     Ceiling.anchorPoint = ccp(0,-5.3);
     [self addChild:Ceiling];
-    
+    */
 }
 
 - (void)setupPhysicsLandscape
 {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Ground" withExtension:@"png"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Beach3" withExtension:@"png"];
     ChipmunkImageSampler *sampler = [ChipmunkImageSampler samplerWithImageFile:url isMask:NO];
     
     ChipmunkPolylineSet *contour = [sampler marchAllWithBorder:NO hard:YES];
