@@ -57,7 +57,7 @@
     
     //Beach
     CCSprite *Beach = [CCSprite spriteWithFile:@"Beach3.png"];
-    Beach.anchorPoint = ccp(0,0.5);
+    Beach.anchorPoint = CGPointZero;
     [self addChild:Beach];
     
     //Ceiling pictures still needs to be modified....
