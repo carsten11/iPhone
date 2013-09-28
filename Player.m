@@ -13,7 +13,7 @@
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position;
 {
 
-    self = [super initWithFile:@"Player.png"];
+    self = [super initWithFile:@"player2.png"];
     if (self) {
         
         _space = space;
@@ -38,6 +38,12 @@
         
     }
     return self;
+}
+
+- (void)fly:(CGFloat)power vector:(cpVect)vector
+{
+    cpVect impulseVector = cpvmult(vector, self.chipmunkBody.mass * power);
+    [self.chipmunkBody applyImpulse:impulseVector offset:cpvzero];
 }
 
 @end

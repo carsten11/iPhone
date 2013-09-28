@@ -15,6 +15,7 @@
 }
 
 - (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position;
+- (void)fly:(CGFloat)power vector:(cpVect)vector;
 
 
 @end

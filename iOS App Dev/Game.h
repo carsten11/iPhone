@@ -7,16 +7,19 @@
 //
 #import "cocos2d.h"
 #import <Foundation/Foundation.h>
+#import "InputLayer.h"
 
 
 @class Player;
-@interface Game : CCScene
+@interface Game : CCScene <InputLayerDelegate>
 {
+    
     NSDictionary *_Configuration;
     ccTime _accumulator;
     Player *_player;
     ChipmunkSpace *_space;
     CCNode *_gameNode;
+    BOOL _followPlayer;
     
 }
 

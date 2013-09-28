@@ -9,6 +9,7 @@
 #import "Game.h"
 #import "ChipmunkAutoGeometry.h"
 #import "Player.h"
+#import "InputLayer.h"
 
 @implementation Game
 
@@ -40,6 +41,11 @@
         _player = [[Player alloc]  initWithSpace:_space position:CGPointFromString(playerPositionString)];
         [self addChild:_player];
         
+        //Create an input layer
+        InputLayer *inputLayer = [[InputLayer alloc] init];
+        inputLayer.delegate = self;
+        [self addChild:inputLayer];
+        
         [self scheduleUpdate];
     }
     return self;
@@ -51,12 +57,12 @@
 {
     
     //Background
-    CCSprite *Background = [CCSprite spriteWithFile:@"Fresh-Ocean-Background.jpg"];
+    CCSprite *Background = [CCSprite spriteWithFile:@"ocean.jpg"];
     Background.anchorPoint = ccp(0,0);
     [self addChild:Background];
     
     //Beach
-    CCSprite *Beach = [CCSprite spriteWithFile:@"Beach3.png"];
+    CCSprite *Beach = [CCSprite spriteWithFile:@"beach.png"];
     Beach.anchorPoint = CGPointZero;
     [self addChild:Beach];
     
@@ -70,7 +76,7 @@
 
 - (void)setupPhysicsLandscape
 {
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Beach3" withExtension:@"png"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"beach" withExtension:@"png"];
     ChipmunkImageSampler *sampler = [ChipmunkImageSampler samplerWithImageFile:url isMask:NO];
     
     ChipmunkPolylineSet *contour = [sampler marchAllWithBorder:NO hard:YES];
@@ -94,6 +100,17 @@
         [_space step:fixedTimeStep];
         _accumulator -= fixedTimeStep;
     }
+}
+
+- (void)touchEndedAtPosition:(CGPoint)position afterDelay:(NSTimeInterval)delay
+{
+    position = [_gameNode convertToNodeSpace:position];
+    NSLog(@"touch: %@", NSStringFromCGPoint(position));
+    NSLog(@"player: %@", NSStringFromCGPoint(_player.position));
+    _followPlayer = YES;
+    cpVect normalizedVector = cpvnormalize(cpvsub(position, _player.position));
+    [_player fly:delay * 300 vector:normalizedVector];
+    
 }
 
 @end
