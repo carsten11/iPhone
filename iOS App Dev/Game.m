@@ -89,6 +89,21 @@
     {
         [_space addShape:shape];
     }
+    
+    _parallaxNode = [CCParallaxNode node];
+    [self addChild:_parallaxNode];
+    
+    CCSprite *ocean = [CCSprite spriteWithFile:@"ocean.jpg"];
+    ocean.anchorPoint = ccp(0, 0);
+    [_parallaxNode addChild:ocean z:0 parallaxRatio:ccp(0.5f, 1.0f) positionOffset:CGPointZero];
+    
+    CCSprite *beach = [CCSprite spriteWithFile:@"beach.png"];
+    beach.anchorPoint = ccp(0, 0);
+    _beachWidth = beach.contentSize.width;
+    [_parallaxNode addChild:beach z:0 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    
+    _gameNode = [CCNode node];
+    [_parallaxNode addChild:_gameNode z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
 }
 
 - (void)update:(ccTime)delta
@@ -100,6 +115,10 @@
         [_space step:fixedTimeStep];
         _accumulator -= fixedTimeStep;
     }
+    
+    CGFloat moveViewportBy = [_Configuration[@"movement"] floatValue];
+    CGFloat _newX = _parallaxNode.position.x - moveViewportBy;
+    _parallaxNode.position = ccp(_newX, 0);
 }
 
 - (void)touchEndedAtPosition:(CGPoint)position afterDelay:(NSTimeInterval)delay

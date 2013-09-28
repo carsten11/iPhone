@@ -4,6 +4,8 @@
 <dict>
 	<key>playerPosition</key>
 	<string>{250,300}</string>
+	<key>movement</key>
+	<string>1.0f</string>
 	<key>gravity</key>
 	<string>50.0f</string>
 </dict>

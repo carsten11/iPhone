@@ -20,6 +20,8 @@
     ChipmunkSpace *_space;
     CCNode *_gameNode;
     BOOL _followPlayer;
+    CCParallaxNode *_parallaxNode;
+    CGFloat _beachWidth;
     
 }
 
