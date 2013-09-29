@@ -34,12 +34,12 @@
         //Create debug node
         CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
         debugNode.visible = YES;
-        [self addChild:debugNode];
+        [_gameNode addChild:debugNode];
        
         //Add the player
         NSString *playerPositionString = _Configuration[@"playerPosition"];
         _player = [[Player alloc]  initWithSpace:_space position:CGPointFromString(playerPositionString)];
-        [self addChild:_player];
+        [_gameNode addChild:_player];
         
         //Create an input layer
         InputLayer *inputLayer = [[InputLayer alloc] init];
@@ -55,16 +55,20 @@
 
 - (void)setupGraphicsLandscape
 {
+    _parallaxNode = [CCParallaxNode node];
+    [self addChild:_parallaxNode];
     
-    //Background
-    CCSprite *Background = [CCSprite spriteWithFile:@"ocean.jpg"];
-    Background.anchorPoint = ccp(0,0);
-    [self addChild:Background];
+    CCSprite *ocean = [CCSprite spriteWithFile:@"ocean.jpg"];
+    ocean.anchorPoint = ccp(0, 0);
+    [_parallaxNode addChild:ocean z:0 parallaxRatio:ccp(0.5f, 1.0f) positionOffset:CGPointZero];
     
-    //Beach
-    CCSprite *Beach = [CCSprite spriteWithFile:@"beach.png"];
-    Beach.anchorPoint = CGPointZero;
-    [self addChild:Beach];
+    CCSprite *beach = [CCSprite spriteWithFile:@"beach.png"];
+    beach.anchorPoint = ccp(0, 0);
+    _beachWidth = beach.contentSize.width;
+    [_parallaxNode addChild:beach z:0 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    
+    _gameNode = [CCNode node];
+    [_parallaxNode addChild:_gameNode z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
     //Ceiling pictures still needs to be modified....
     
@@ -89,21 +93,6 @@
     {
         [_space addShape:shape];
     }
-    
-    _parallaxNode = [CCParallaxNode node];
-    [self addChild:_parallaxNode];
-    
-    CCSprite *ocean = [CCSprite spriteWithFile:@"ocean.jpg"];
-    ocean.anchorPoint = ccp(0, 0);
-    [_parallaxNode addChild:ocean z:0 parallaxRatio:ccp(0.5f, 1.0f) positionOffset:CGPointZero];
-    
-    CCSprite *beach = [CCSprite spriteWithFile:@"beach.png"];
-    beach.anchorPoint = ccp(0, 0);
-    _beachWidth = beach.contentSize.width;
-    [_parallaxNode addChild:beach z:0 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
-    
-    _gameNode = [CCNode node];
-    [_parallaxNode addChild:_gameNode z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
 }
 
 - (void)update:(ccTime)delta
