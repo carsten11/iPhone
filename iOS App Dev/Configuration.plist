@@ -5,7 +5,13 @@
 	<key>playerPosition</key>
 	<string>{250,200}</string>
 	<key>movement</key>
-	<string>5.0f</string>
+	<string>1.0f</string>
+	<key>coinPosition</key>
+	<string>{250,150}</string>
+	<key>coin2Position</key>
+	<string>{260,120}</string>
+	<key>explotionFile</key>
+	<string>WaterSplash.plist</string>
 	<key>gravity</key>
 	<string>50.0f</string>
 </dict>

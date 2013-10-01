@@ -10,6 +10,7 @@
 #import "ChipmunkAutoGeometry.h"
 #import "Player.h"
 #import "InputLayer.h"
+#import "Coin.h"
 
 @implementation Game
 
@@ -23,8 +24,16 @@
         
         //Create physics world
         _space = [[ChipmunkSpace alloc] init];
+        
         CGFloat gravity = [_Configuration[@"gravity"] floatValue];
         _space.gravity = ccp(0.0f, -gravity);
+        
+        //Register collision handler
+        [_space setDefaultCollisionHandler:self
+                                     begin:@selector(collisionBegan: space:)
+                                  preSolve:nil
+                                 postSolve:nil
+                                  separate:nil];
         
         // Setup world
         // nextTunnelObjXPos tells us at what X position the next tunnel object should be created.
@@ -46,10 +55,24 @@
         _player = [[Player alloc]  initWithSpace:_space position:CGPointFromString(playerPositionString)];
         [_gameNode addChild:_player];
         
+        //Add coins
+        NSString *coinPositionString = _Configuration[@"coinPosition"];
+        _coin = [[Coin alloc] initWithSpace:_space position:CGPointFromString(coinPositionString)];
+        [_coinsLayer addChild:_coin];
+        
+        NSString *coinPositionString2 = _Configuration[@"coin2Position"];
+        _coin = [[Coin alloc] initWithSpace:_space position:CGPointFromString(coinPositionString2)];
+        [_coinsLayer addChild:_coin];
+        
         //Create an input layer
         InputLayer *inputLayer = [[InputLayer alloc] init];
         inputLayer.delegate = self;
         [self addChild:inputLayer];
+        
+        //Splash setup
+        _splashParticles = [CCParticleSystemQuad particleWithFile:_Configuration[@"explotionFile"]];
+        [_splashParticles stopSystem];
+        [_gameNode addChild:_splashParticles];
         
         [self scheduleUpdate];
     }
@@ -89,15 +112,15 @@
                 }
                 else if (currentTunnelObject.zOrder == 2 && parallaxPosition.x < -_nextCeiling) // 2 == ceiling
                 {
-                    newTunnelObject = [CCSprite spriteWithFile:@"ceiling.png"];
+                    newTunnelObject = [CCSprite spriteWithFile:@"ceiling2.png"];
                     _nextCeiling = _nextCeiling + newTunnelObject.contentSize.width;
                     _nextTunnelObjectXPosition = _nextCeiling;
                     currentParallaxRatio = 1.0f;
                 }
-                else if (currentTunnelObject.zOrder == 0 && parallaxPosition.x < -_nextOcean) // 3 == background
+                else if (currentTunnelObject.zOrder == 0 && parallaxPosition.x < -_nextOcean*2) // 3 == background
                 {
                     newTunnelObject = [CCSprite spriteWithFile:@"ocean.jpg"];
-                    _nextOcean = _nextOcean + newTunnelObject.contentSize.width;
+                    _nextOcean = _nextOcean + (newTunnelObject.contentSize.width);
                     _nextTunnelObjectXPosition = _nextOcean;
                     currentParallaxRatio = 0.5f;
                 }
@@ -124,9 +147,13 @@
     _parallaxNode = [CCParallaxNode node];
     [self addChild:_parallaxNode];
     
-    CCSprite *ocean = [CCSprite spriteWithFile:@"ocean.jpg"];
-    ocean.anchorPoint = ccp(0, 0);
-    [_parallaxNode addChild:ocean z:0 parallaxRatio:ccp(0.5f, 1.0f) positionOffset:CGPointZero];
+    CCSprite *ocean1 = [CCSprite spriteWithFile:@"ocean.jpg"];
+    ocean1.anchorPoint = ccp(0, 0);
+    [_parallaxNode addChild:ocean1 z:0 parallaxRatio:ccp(0.5f, 1.0f) positionOffset:CGPointZero];
+    
+    CCSprite *ocean2 = [CCSprite spriteWithFile:@"ocean.jpg"];
+    ocean2.anchorPoint = ccp(0, 0);
+    [_parallaxNode addChild:ocean2 z:0 parallaxRatio:ccp(0.5f, 1.0f) positionOffset:CGPointMake(ocean1.contentSize.width, 0)];
     
     CCSprite *beach1 = [CCSprite spriteWithFile:@"beach.png"];
     beach1.anchorPoint = ccp(0, 0);
@@ -136,18 +163,26 @@
     beach2.anchorPoint = ccp(0, 0);
     [_parallaxNode addChild:beach2 z:1 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointMake(beach1.contentSize.width, 0)];
     
-    CCSprite *ceiling1 = [CCSprite spriteWithFile:@"ceiling.png"];
+    CCSprite *ceiling1 = [CCSprite spriteWithFile:@"ceiling2.png"];
     ceiling1.anchorPoint = ccp(0,-2.2);
     [_parallaxNode addChild:ceiling1 z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
-    CCSprite *ceiling2 = [CCSprite spriteWithFile:@"ceiling.png"];
+    CCSprite *ceiling2 = [CCSprite spriteWithFile:@"ceiling2.png"];
     ceiling2.anchorPoint = ccp(0,-2.2);
     [_parallaxNode addChild:ceiling2 z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointMake(ceiling1.contentSize.width, 0)];
     
     _gameNode = [CCNode node];
     [_parallaxNode addChild:_gameNode z:3 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
+    _coinsLayer = [CCNode node];
+    [_parallaxNode addChild:_coinsLayer z:4 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    
     _nextTunnelObjectXPosition = beach1.contentSize.width;
+    
+    _nextTunnelObjectXPosition = 0.0f;
+    _nextOcean = ocean1.contentSize.width;
+    _nextCeiling = ceiling1.contentSize.width;
+    _nextBeach = beach1.contentSize.width;
     
 }
 
@@ -209,6 +244,31 @@
     _followPlayer = YES;
     [_player fly];
     
+}
+
+-(bool)collisionBegan:(cpArbiter *)arbiter space:(ChipmunkSpace*)space {
+    cpBody *firstBody;
+    cpBody *secondBody;
+    cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
+    
+    ChipmunkBody *firstChipmunkBody = firstBody->data;
+    ChipmunkBody *secondChipmunkBody = secondBody->data;
+    
+    for (Coin *currentCoin in _coinsLayer.children)
+    {
+        if ((firstChipmunkBody == _player.chipmunkBody && secondChipmunkBody == currentCoin.chipmunkBody) ||
+            (firstChipmunkBody == currentCoin.chipmunkBody && secondChipmunkBody == _player.chipmunkBody)) {
+        
+            // Play particle
+            _splashParticles.position = currentCoin.position;
+            [_splashParticles resetSystem];
+            
+            //Remove coin
+            [currentCoin removeFromParentAndCleanup:YES];
+        }
+    }
+    
+    return YES;
 }
 
 @end
