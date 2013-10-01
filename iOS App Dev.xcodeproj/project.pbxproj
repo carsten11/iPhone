@@ -148,11 +148,21 @@
 		D92DF05C17F64E84007EDE7F /* ocean.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D92DF05A17F64E84007EDE7F /* ocean.jpg */; };
 		D95D37F817FA68010062EE4C /* ceiling2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D37F617FA68010062EE4C /* ceiling2-hd.png */; };
 		D95D37F917FA68010062EE4C /* ceiling2.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D37F717FA68010062EE4C /* ceiling2.png */; };
-		D95D37FB17FB06A10062EE4C /* coinGold-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D37FA17FB06A10062EE4C /* coinGold-hd.png */; };
 		D95D37FD17FB06BA0062EE4C /* coinGold.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D37FC17FB06BA0062EE4C /* coinGold.png */; };
 		D95D380017FB07450062EE4C /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = D95D37FF17FB07450062EE4C /* Coin.m */; };
 		D95D380217FB13480062EE4C /* coinTouch.pdproject in Resources */ = {isa = PBXBuildFile; fileRef = D95D380117FB13480062EE4C /* coinTouch.pdproject */; };
 		D95D380417FB16FC0062EE4C /* WaterSplash.plist in Resources */ = {isa = PBXBuildFile; fileRef = D95D380317FB16FC0062EE4C /* WaterSplash.plist */; };
+		D95D380617FB26C20062EE4C /* coinGold-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D95D380517FB26C20062EE4C /* coinGold-hd.png */; };
+		D95D381117FB27340062EE4C /* 0.wav in Resources */ = {isa = PBXBuildFile; fileRef = D95D380717FB27340062EE4C /* 0.wav */; };
+		D95D381217FB27340062EE4C /* 7.wav in Resources */ = {isa = PBXBuildFile; fileRef = D95D380817FB27340062EE4C /* 7.wav */; };
+		D95D381317FB27340062EE4C /* 6.wav in Resources */ = {isa = PBXBuildFile; fileRef = D95D380917FB27340062EE4C /* 6.wav */; };
+		D95D381417FB27340062EE4C /* 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = D95D380A17FB27340062EE4C /* 5.wav */; };
+		D95D381517FB27340062EE4C /* 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = D95D380B17FB27340062EE4C /* 4.wav */; };
+		D95D381617FB27340062EE4C /* 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = D95D380C17FB27340062EE4C /* 3.wav */; };
+		D95D381717FB27340062EE4C /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = D95D380D17FB27340062EE4C /* 2.wav */; };
+		D95D381817FB27340062EE4C /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = D95D380E17FB27340062EE4C /* 1.wav */; };
+		D95D381917FB27340062EE4C /* BackGround.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D95D380F17FB27340062EE4C /* BackGround.mp3 */; };
+		D95D381A17FB27340062EE4C /* GoalSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D95D381017FB27340062EE4C /* GoalSound.mp3 */; };
 		D9D4EEB317F3B4EC002CAA9F /* Ground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */; };
 		D9D4EEB517F3B5E2002CAA9F /* Ground.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB417F3B5E2002CAA9F /* Ground.png */; };
 		D9D4EEBE17F3D7D6002CAA9F /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEBD17F3D7D6002CAA9F /* Configuration.plist */; };
@@ -494,12 +504,22 @@
 		D92DF05A17F64E84007EDE7F /* ocean.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ocean.jpg; sourceTree = "<group>"; };
 		D95D37F617FA68010062EE4C /* ceiling2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceiling2-hd.png"; sourceTree = "<group>"; };
 		D95D37F717FA68010062EE4C /* ceiling2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ceiling2.png; sourceTree = "<group>"; };
-		D95D37FA17FB06A10062EE4C /* coinGold-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coinGold-hd.png"; sourceTree = "<group>"; };
 		D95D37FC17FB06BA0062EE4C /* coinGold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coinGold.png; sourceTree = "<group>"; };
 		D95D37FE17FB07450062EE4C /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
 		D95D37FF17FB07450062EE4C /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
 		D95D380117FB13480062EE4C /* coinTouch.pdproject */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = coinTouch.pdproject; sourceTree = "<group>"; };
 		D95D380317FB16FC0062EE4C /* WaterSplash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WaterSplash.plist; sourceTree = "<group>"; };
+		D95D380517FB26C20062EE4C /* coinGold-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coinGold-hd.png"; sourceTree = "<group>"; };
+		D95D380717FB27340062EE4C /* 0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.wav; sourceTree = "<group>"; };
+		D95D380817FB27340062EE4C /* 7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 7.wav; sourceTree = "<group>"; };
+		D95D380917FB27340062EE4C /* 6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 6.wav; sourceTree = "<group>"; };
+		D95D380A17FB27340062EE4C /* 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 5.wav; sourceTree = "<group>"; };
+		D95D380B17FB27340062EE4C /* 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 4.wav; sourceTree = "<group>"; };
+		D95D380C17FB27340062EE4C /* 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 3.wav; sourceTree = "<group>"; };
+		D95D380D17FB27340062EE4C /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = "<group>"; };
+		D95D380E17FB27340062EE4C /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
+		D95D380F17FB27340062EE4C /* BackGround.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackGround.mp3; sourceTree = "<group>"; };
+		D95D381017FB27340062EE4C /* GoalSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GoalSound.mp3; sourceTree = "<group>"; };
 		D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ground-hd.png"; sourceTree = "<group>"; };
 		D9D4EEB417F3B5E2002CAA9F /* Ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ground.png; sourceTree = "<group>"; };
 		D9D4EEBD17F3D7D6002CAA9F /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -597,6 +617,16 @@
 			isa = PBXGroup;
 			children = (
 				D95D380117FB13480062EE4C /* coinTouch.pdproject */,
+				D95D380717FB27340062EE4C /* 0.wav */,
+				D95D380817FB27340062EE4C /* 7.wav */,
+				D95D380917FB27340062EE4C /* 6.wav */,
+				D95D380A17FB27340062EE4C /* 5.wav */,
+				D95D380B17FB27340062EE4C /* 4.wav */,
+				D95D380C17FB27340062EE4C /* 3.wav */,
+				D95D380D17FB27340062EE4C /* 2.wav */,
+				D95D380E17FB27340062EE4C /* 1.wav */,
+				D95D380F17FB27340062EE4C /* BackGround.mp3 */,
+				D95D381017FB27340062EE4C /* GoalSound.mp3 */,
 				D92DF05917F64E84007EDE7F /* ocean-hd.jpg */,
 				D92DF05A17F64E84007EDE7F /* ocean.jpg */,
 				D95D37F617FA68010062EE4C /* ceiling2-hd.png */,
@@ -604,9 +634,9 @@
 				D9EC452217F645EE00ADEC20 /* beach-hd.png */,
 				D92DF05717F64DEB007EDE7F /* player2.png */,
 				D9EC452317F645EE00ADEC20 /* beach.png */,
-				D95D37FA17FB06A10062EE4C /* coinGold-hd.png */,
 				D95D380317FB16FC0062EE4C /* WaterSplash.plist */,
 				D95D37FC17FB06BA0062EE4C /* coinGold.png */,
+				D95D380517FB26C20062EE4C /* coinGold-hd.png */,
 				D9EC450717F4FA1200ADEC20 /* Beach3.png */,
 				D9EC450517F4F9FA00ADEC20 /* Beach3-hd.png */,
 				0B312F4317E85CF200D0829B /* Default.png */,
@@ -1108,11 +1138,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95D381517FB27340062EE4C /* 4.wav in Resources */,
 				D95D37FD17FB06BA0062EE4C /* coinGold.png in Resources */,
 				D95D37F817FA68010062EE4C /* ceiling2-hd.png in Resources */,
 				0B312F4417E85CF200D0829B /* Default.png in Resources */,
 				0B312F4617E85CF200D0829B /* Default@2x.png in Resources */,
-				D95D37FB17FB06A10062EE4C /* coinGold-hd.png in Resources */,
 				D9EC452417F645EE00ADEC20 /* beach-hd.png in Resources */,
 				0B312F4817E85CF200D0829B /* Default-568h@2x.png in Resources */,
 				D9D4EEB317F3B4EC002CAA9F /* Ground-hd.png in Resources */,
@@ -1122,15 +1152,25 @@
 				D9D4EEBE17F3D7D6002CAA9F /* Configuration.plist in Resources */,
 				D92DF05817F64DEB007EDE7F /* player2.png in Resources */,
 				0B312F4E17E85CF200D0829B /* Icon-Small-50.png in Resources */,
+				D95D381317FB27340062EE4C /* 6.wav in Resources */,
 				D95D380217FB13480062EE4C /* coinTouch.pdproject in Resources */,
 				0B312F5017E85CF200D0829B /* Icon-Small.png in Resources */,
 				0B312F5217E85CF200D0829B /* Icon-Small@2x.png in Resources */,
+				D95D381717FB27340062EE4C /* 2.wav in Resources */,
 				D9EC450817F4FA1200ADEC20 /* Beach3.png in Resources */,
 				D9EC450617F4F9FA00ADEC20 /* Beach3-hd.png in Resources */,
+				D95D381A17FB27340062EE4C /* GoalSound.mp3 in Resources */,
+				D95D381617FB27340062EE4C /* 3.wav in Resources */,
+				D95D381217FB27340062EE4C /* 7.wav in Resources */,
+				D95D381117FB27340062EE4C /* 0.wav in Resources */,
+				D95D380617FB26C20062EE4C /* coinGold-hd.png in Resources */,
+				D95D381417FB27340062EE4C /* 5.wav in Resources */,
 				D92DF05B17F64E84007EDE7F /* ocean-hd.jpg in Resources */,
 				0B312F5417E85CF200D0829B /* Icon.png in Resources */,
 				D9D4EEB517F3B5E2002CAA9F /* Ground.png in Resources */,
 				0B312F5617E85CF200D0829B /* Icon@2x.png in Resources */,
+				D95D381817FB27340062EE4C /* 1.wav in Resources */,
+				D95D381917FB27340062EE4C /* BackGround.mp3 in Resources */,
 				D9EC452517F645EE00ADEC20 /* beach.png in Resources */,
 				D95D37F917FA68010062EE4C /* ceiling2.png in Resources */,
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,

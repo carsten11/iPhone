@@ -11,6 +11,7 @@
 #import "Player.h"
 #import "InputLayer.h"
 #import "Coin.h"
+#import "SimpleAudioEngine.h"
 
 @implementation Game
 
@@ -74,9 +75,22 @@
         [_splashParticles stopSystem];
         [_gameNode addChild:_splashParticles];
         
+        //Preload sound effects
+        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"BackGround.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"1.mp3"/*,@"2.mp3",@"3.mp3",@"4.mp3",@"5.mp3",@"6.mp3",@"7.mp3",@"8.mp3",@"GoalSound"*/];
+        
         [self scheduleUpdate];
     }
     return self;
+}
+
+- (void)addCoinToWorld:(CGFloat)xPosition
+{
+    srandom(time(NULL));
+    CGFloat yPosition = (CCRANDOM_0_1()*300)+50;
+    _coin = [[Coin alloc] initWithSpace:_space position:CGPointMake(xPosition, yPosition)];
+    [_coinsLayer addChild:_coin];
+    NSLog(@"xPosition: %f", xPosition);
 }
 
 - (void)assemblyBelt
@@ -136,6 +150,8 @@
                 
                 //NSLog(@"Adding tunnel object at X position: %f", _nextTunnelObjectXPosition);
                 [_parallaxNode addChild:newTunnelObject z:keepZOrder parallaxRatio:ccp(currentParallaxRatio, 1.0f) positionOffset:ccp(_nextTunnelObjectXPosition,tunnelObjectYPosition)];
+                
+                [self addCoinToWorld:newTunnelObject.offsetPosition.x];
             }
         }
     }
@@ -262,6 +278,12 @@
             // Play particle
             _splashParticles.position = currentCoin.position;
             [_splashParticles resetSystem];
+            
+            //Play sound
+            //NSInteger coinSound = CCRANDOM_0_1()*7.0f;
+            
+            
+            [[SimpleAudioEngine sharedEngine] playEffect:@"1.mp3"];
             
             //Remove coin
             [currentCoin removeFromParentAndCleanup:YES];
