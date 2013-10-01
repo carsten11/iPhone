@@ -27,6 +27,11 @@
         _space.gravity = ccp(0.0f, -gravity);
         
         // Setup world
+        // nextTunnelObjXPos tells us at what X position the next tunnel object should be created.
+        _nextTunnelObjectXPosition = 0.0f;
+        _nextOcean = 0.0f;
+        _nextCeiling = 0.0f;
+        _nextBeach = 0.0f;
         [self setupGraphicsLandscape];
         [self setupPhysicsLandscape];
         
@@ -51,6 +56,67 @@
     return self;
 }
 
+- (void)assemblyBelt
+{
+    // Remove sprite when it disapears from the screen and then
+    // add it on the right of the currently viewable sprite.
+    for (CCSprite *currentTunnelObject in _parallaxNode.children)
+    {
+        NSInteger keepZOrder = currentTunnelObject.zOrder;
+        if (currentTunnelObject.zOrder == 1 || currentTunnelObject.zOrder == 2 || currentTunnelObject.zOrder == 0)
+        {
+            // Just for debug logging. TODO: Cleanup.
+            CGPoint parallaxPosition = ccp(_parallaxNode.position.x, 0.0f);
+            NSLog (@"Parallax position: %@", NSStringFromCGPoint(parallaxPosition));
+            
+            // We only need to create a new tunnel object if the current tunnel object exits the viewpoint
+            //CGFloat tunnelObjectOffset = _nextTunnelObjectXPosition;
+            //if (parallaxPosition.x < -tunnelObjectOffset)
+ 
+                NSLog(@"zOrder: %i", currentTunnelObject.zOrder);
+                // Keep the current Y position so the new tunnel object aligns with the current tunnel object.
+                CGFloat tunnelObjectYPosition = currentTunnelObject.position.y;
+                NSLog (@"Tunnel object position before: %f", currentTunnelObject.position.x);
+
+                CCSprite *newTunnelObject;
+            CGFloat currentParallaxRatio;
+                if (currentTunnelObject.zOrder == 1 && parallaxPosition.x < -_nextBeach) // 1 == beach
+                {
+                    newTunnelObject = [CCSprite spriteWithFile:@"beach.png"];
+                    _nextBeach = _nextBeach + newTunnelObject.contentSize.width;
+                    _nextTunnelObjectXPosition = _nextBeach;
+                    currentParallaxRatio = 1.0f;
+                }
+                else if (currentTunnelObject.zOrder == 2 && parallaxPosition.x < -_nextCeiling) // 2 == ceiling
+                {
+                    newTunnelObject = [CCSprite spriteWithFile:@"ceiling.png"];
+                    _nextCeiling = _nextCeiling + newTunnelObject.contentSize.width;
+                    _nextTunnelObjectXPosition = _nextCeiling;
+                    currentParallaxRatio = 1.0f;
+                }
+                else if (currentTunnelObject.zOrder == 0 && parallaxPosition.x < -_nextOcean) // 3 == background
+                {
+                    newTunnelObject = [CCSprite spriteWithFile:@"ocean.jpg"];
+                    _nextOcean = _nextOcean + newTunnelObject.contentSize.width;
+                    _nextTunnelObjectXPosition = _nextOcean;
+                    currentParallaxRatio = 0.5f;
+                }
+            
+            if (newTunnelObject != nil)
+            {
+                //newTunnelObject.anchorPoint = currentTunnelObject.anchorPoint;
+                newTunnelObject.anchorPoint = currentTunnelObject.anchorPoint;
+                
+                //NSLog(@"Removing tunnel object.");
+                [_parallaxNode removeChild:currentTunnelObject];
+                //newTunnelObject.anchorPoint = ccp(0, 0);
+                
+                //NSLog(@"Adding tunnel object at X position: %f", _nextTunnelObjectXPosition);
+                [_parallaxNode addChild:newTunnelObject z:keepZOrder parallaxRatio:ccp(currentParallaxRatio, 1.0f) positionOffset:ccp(_nextTunnelObjectXPosition,tunnelObjectYPosition)];
+            }
+        }
+    }
+}
 
 
 - (void)setupGraphicsLandscape
@@ -62,20 +128,27 @@
     ocean.anchorPoint = ccp(0, 0);
     [_parallaxNode addChild:ocean z:0 parallaxRatio:ccp(0.5f, 1.0f) positionOffset:CGPointZero];
     
-    CCSprite *beach = [CCSprite spriteWithFile:@"beach.png"];
-    beach.anchorPoint = ccp(0, 0);
-    _beachWidth = beach.contentSize.width;
-    [_parallaxNode addChild:beach z:0 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    CCSprite *beach1 = [CCSprite spriteWithFile:@"beach.png"];
+    beach1.anchorPoint = ccp(0, 0);
+    [_parallaxNode addChild:beach1 z:1 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    
+    CCSprite *beach2 = [CCSprite spriteWithFile:@"beach.png"];
+    beach2.anchorPoint = ccp(0, 0);
+    [_parallaxNode addChild:beach2 z:1 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointMake(beach1.contentSize.width, 0)];
+    
+    CCSprite *ceiling1 = [CCSprite spriteWithFile:@"ceiling.png"];
+    ceiling1.anchorPoint = ccp(0,-2.2);
+    [_parallaxNode addChild:ceiling1 z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    
+    CCSprite *ceiling2 = [CCSprite spriteWithFile:@"ceiling.png"];
+    ceiling2.anchorPoint = ccp(0,-2.2);
+    [_parallaxNode addChild:ceiling2 z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointMake(ceiling1.contentSize.width, 0)];
     
     _gameNode = [CCNode node];
-    [_parallaxNode addChild:_gameNode z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    [_parallaxNode addChild:_gameNode z:3 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
     
-    //Ceiling pictures still needs to be modified....
+    _nextTunnelObjectXPosition = beach1.contentSize.width;
     
-    /*CCSprite *Ceiling = [CCSprite spriteWithFile:@"Ceiling.png"];
-    Ceiling.anchorPoint = ccp(0,-5.3);
-    [self addChild:Ceiling];
-    */
 }
 
 - (void)setupPhysicsLandscape
@@ -93,6 +166,21 @@
     {
         [_space addShape:shape];
     }
+    
+    
+    NSURL *url2 = [[NSBundle mainBundle] URLForResource:@"ceiling" withExtension:@"png"];
+    ChipmunkImageSampler *sampler2 = [ChipmunkImageSampler samplerWithImageFile:url2 isMask:NO];
+    
+    ChipmunkPolylineSet *contour2 = [sampler2 marchAllWithBorder:NO hard:YES];
+    ChipmunkPolyline *line2 = [contour2 lineAtIndex:0];
+    ChipmunkPolyline *simpleLine2 = [line2 simplifyCurves:1];
+    
+    ChipmunkBody *terrainBody2 = [ChipmunkBody staticBody];
+    NSArray *terrainShapes2 = [simpleLine2 asChipmunkSegmentsWithBody:terrainBody2 radius:0 offset:cpvzero];
+    for (ChipmunkShape *shape2 in terrainShapes2)
+    {
+        [_space addShape:shape2];
+    }
 }
 
 - (void)update:(ccTime)delta
@@ -108,6 +196,9 @@
     CGFloat moveViewportBy = [_Configuration[@"movement"] floatValue];
     CGFloat _newX = _parallaxNode.position.x - moveViewportBy;
     _parallaxNode.position = ccp(_newX, 0);
+    
+    // If needed - move beach
+    [self assemblyBelt];
 }
 
 - (void)touchEndedAtPosition:(CGPoint)position afterDelay:(NSTimeInterval)delay
@@ -116,8 +207,7 @@
     NSLog(@"touch: %@", NSStringFromCGPoint(position));
     NSLog(@"player: %@", NSStringFromCGPoint(_player.position));
     _followPlayer = YES;
-    cpVect normalizedVector = cpvnormalize(cpvsub(position, _player.position));
-    [_player fly:delay * 300 vector:normalizedVector];
+    [_player fly];
     
 }
 

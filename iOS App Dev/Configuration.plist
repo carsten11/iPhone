@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>playerPosition</key>
-	<string>{250,300}</string>
+	<string>{250,200}</string>
 	<key>movement</key>
-	<string>1.0f</string>
+	<string>5.0f</string>
 	<key>gravity</key>
 	<string>50.0f</string>
 </dict>

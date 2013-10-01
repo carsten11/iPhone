@@ -40,9 +40,10 @@
     return self;
 }
 
-- (void)fly:(CGFloat)power vector:(cpVect)vector
+
+- (void)fly
 {
-    cpVect impulseVector = cpvmult(vector, self.chipmunkBody.mass * power);
+    cpVect impulseVector = cpv(self.chipmunkBody.mass * 1.25, self.chipmunkBody.mass * 20);
     [self.chipmunkBody applyImpulse:impulseVector offset:cpvzero];
 }
 

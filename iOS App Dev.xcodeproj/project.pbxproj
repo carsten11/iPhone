@@ -148,8 +148,6 @@
 		D92DF05C17F64E84007EDE7F /* ocean.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D92DF05A17F64E84007EDE7F /* ocean.jpg */; };
 		D9D4EEB317F3B4EC002CAA9F /* Ground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */; };
 		D9D4EEB517F3B5E2002CAA9F /* Ground.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB417F3B5E2002CAA9F /* Ground.png */; };
-		D9D4EEB717F3B8E1002CAA9F /* Ceiling-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */; };
-		D9D4EEB917F3B8F5002CAA9F /* Ceiling.png in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEB817F3B8F5002CAA9F /* Ceiling.png */; };
 		D9D4EEBE17F3D7D6002CAA9F /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9D4EEBD17F3D7D6002CAA9F /* Configuration.plist */; };
 		D9D4EEC117F49B69002CAA9F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D4EEC017F49B69002CAA9F /* Player.m */; };
 		D9EC450617F4F9FA00ADEC20 /* Beach3-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EC450517F4F9FA00ADEC20 /* Beach3-hd.png */; };
@@ -157,6 +155,8 @@
 		D9EC450B17F62B6700ADEC20 /* InputLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EC450A17F62B6700ADEC20 /* InputLayer.m */; };
 		D9EC452417F645EE00ADEC20 /* beach-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EC452217F645EE00ADEC20 /* beach-hd.png */; };
 		D9EC452517F645EE00ADEC20 /* beach.png in Resources */ = {isa = PBXBuildFile; fileRef = D9EC452317F645EE00ADEC20 /* beach.png */; };
+		D9F9F86517FA2A6C001FC63A /* ceiling-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F9F86317FA2A6C001FC63A /* ceiling-hd.png */; };
+		D9F9F86617FA2A6C001FC63A /* ceiling.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F9F86417FA2A6C001FC63A /* ceiling.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -489,8 +489,6 @@
 		D92DF05A17F64E84007EDE7F /* ocean.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ocean.jpg; sourceTree = "<group>"; };
 		D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ground-hd.png"; sourceTree = "<group>"; };
 		D9D4EEB417F3B5E2002CAA9F /* Ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ground.png; sourceTree = "<group>"; };
-		D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ceiling-hd.png"; sourceTree = "<group>"; };
-		D9D4EEB817F3B8F5002CAA9F /* Ceiling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ceiling.png; sourceTree = "<group>"; };
 		D9D4EEBD17F3D7D6002CAA9F /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		D9D4EEBF17F49B69002CAA9F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Player.h; sourceTree = "<group>"; };
 		D9D4EEC017F49B69002CAA9F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = ../Player.m; sourceTree = "<group>"; };
@@ -500,6 +498,8 @@
 		D9EC450A17F62B6700ADEC20 /* InputLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InputLayer.m; path = "iOS App Dev/InputLayer.m"; sourceTree = "<group>"; };
 		D9EC452217F645EE00ADEC20 /* beach-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beach-hd.png"; sourceTree = "<group>"; };
 		D9EC452317F645EE00ADEC20 /* beach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beach.png; sourceTree = "<group>"; };
+		D9F9F86317FA2A6C001FC63A /* ceiling-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ceiling-hd.png"; sourceTree = "<group>"; };
+		D9F9F86417FA2A6C001FC63A /* ceiling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ceiling.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,14 +585,14 @@
 			children = (
 				D92DF05917F64E84007EDE7F /* ocean-hd.jpg */,
 				D92DF05A17F64E84007EDE7F /* ocean.jpg */,
+				D9F9F86317FA2A6C001FC63A /* ceiling-hd.png */,
+				D9F9F86417FA2A6C001FC63A /* ceiling.png */,
 				D9EC452217F645EE00ADEC20 /* beach-hd.png */,
 				D92DF05717F64DEB007EDE7F /* player2.png */,
 				D9EC452317F645EE00ADEC20 /* beach.png */,
 				D9EC450717F4FA1200ADEC20 /* Beach3.png */,
 				D9EC450517F4F9FA00ADEC20 /* Beach3-hd.png */,
 				0B312F4317E85CF200D0829B /* Default.png */,
-				D9D4EEB617F3B8E1002CAA9F /* Ceiling-hd.png */,
-				D9D4EEB817F3B8F5002CAA9F /* Ceiling.png */,
 				D9D4EEB417F3B5E2002CAA9F /* Ground.png */,
 				D9D4EEB217F3B4EC002CAA9F /* Ground-hd.png */,
 				0B312F4517E85CF200D0829B /* Default@2x.png */,
@@ -1092,6 +1092,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B312F4417E85CF200D0829B /* Default.png in Resources */,
+				D9F9F86617FA2A6C001FC63A /* ceiling.png in Resources */,
 				0B312F4617E85CF200D0829B /* Default@2x.png in Resources */,
 				D9EC452417F645EE00ADEC20 /* beach-hd.png in Resources */,
 				0B312F4817E85CF200D0829B /* Default-568h@2x.png in Resources */,
@@ -1105,10 +1106,9 @@
 				0B312F5217E85CF200D0829B /* Icon-Small@2x.png in Resources */,
 				D9EC450817F4FA1200ADEC20 /* Beach3.png in Resources */,
 				D9EC450617F4F9FA00ADEC20 /* Beach3-hd.png in Resources */,
-				D9D4EEB917F3B8F5002CAA9F /* Ceiling.png in Resources */,
 				D92DF05B17F64E84007EDE7F /* ocean-hd.jpg in Resources */,
+				D9F9F86517FA2A6C001FC63A /* ceiling-hd.png in Resources */,
 				0B312F5417E85CF200D0829B /* Icon.png in Resources */,
-				D9D4EEB717F3B8E1002CAA9F /* Ceiling-hd.png in Resources */,
 				D9D4EEB517F3B5E2002CAA9F /* Ground.png in Resources */,
 				0B312F5617E85CF200D0829B /* Icon@2x.png in Resources */,
 				D9EC452517F645EE00ADEC20 /* beach.png in Resources */,

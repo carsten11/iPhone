@@ -21,7 +21,11 @@
     CCNode *_gameNode;
     BOOL _followPlayer;
     CCParallaxNode *_parallaxNode;
-    CGFloat _beachWidth;
+    CGFloat _nextTunnelObjectXPosition;
+    
+    CGFloat _nextOcean;
+    CGFloat _nextCeiling;
+    CGFloat _nextBeach;
     
 }
 
